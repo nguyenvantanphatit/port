@@ -1,0 +1,648 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.75rem;
+    --color: yellow;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --color: #CE243C;
+  }
+}
+
+@layer base {
+  * {
+    @apply m-0 box-border border-border p-0;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer base {
+  html.lenis,
+  html.lenis body {
+    @apply h-auto;
+  }
+
+  .lenis.lenis-smooth {
+    @apply scroll-auto;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    @apply overscroll-contain;
+  }
+
+  .lenis.lenis-stopped {
+    @apply overflow-hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    @apply pointer-events-none;
+  }
+}
+
+@layer utilities {
+  .shadow-sm {
+    @apply shadow-none;
+  }
+}
+
+
+.custom-spin-slow {
+  animation: spin-text 10s linear infinite;
+}
+
+@keyframes spin-text {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.circle-text {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 12px;
+  fill: #333;
+}
+
+@keyframes move-dot1 {
+  0% {
+    transform: translateX(-50%) translateY(-50%);
+  }
+  
+  20% {
+    transform: translateX(-50%) translateY(30%);
+  }
+  
+  100% { 
+    transform: translateX(-50%) translateY(30%);
+  }
+}
+
+@keyframes move-dot2 {
+  0% {
+    transform: translateX(-50%) translateY(-50%);
+  }
+  
+  15% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  
+  30% {
+    transform: translateX(-10%) translateY(-10%);
+  }
+  
+  100% { 
+    transform: translateX(-10%) translateY(-10%);
+  }
+}
+
+
+.animation-example {
+  position: relative;
+}
+
+.animation-example > .item {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 50%;
+  width: 50%;
+  transform: translateX(-50%);
+  transform-origin: 50% 100%;
+  pointer-events: none;
+}
+
+.animation-example > .item:nth-child(2) {
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.animation-example > .item:nth-child(3) {
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.animation-example > .item:nth-child(4) {
+  transform: translateX(-50%) rotate(270deg);
+}
+
+.animation-example > .item > .line {
+  height: 100%;
+  width: calc(50% + 1px);
+  border-right: 2px dashed var(--color);
+}
+
+.animation-example > .item > .dot {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%) translateY(-50%);
+  height: 100%;
+  width: 100%;
+  animation: move-dot1 5.5s linear infinite;
+}
+
+.animation-example > .item > .dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  height: 5%;
+  width: 5%;
+  background: #fff;
+  border: 2px solid var(--color);
+  border-radius: 50%;
+}
+
+.animation-example > .item > .circle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 30%;
+  width: 30%;
+  border-radius: 50%;
+  background: var(--color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; 
+  font-size: 10px;
+  transform-origin: center;
+}
+
+.animation-example > .item.-type2 {
+  top: 0;
+  left: 0;
+  transform: none;
+  transform-origin: 100% 100%;
+}
+
+.animation-example > .item.-type2:nth-child(5) {
+  transform: scaleX(-100%);
+}
+
+.animation-example > .item.-type2:nth-child(6) {
+  transform: scaleX(-100%) scaleY(-100%);
+}
+
+.animation-example > .item.-type2:nth-child(7) {
+  transform: scaleY(-100%);
+}
+
+.animation-example > .item.-type2 > .line {
+  position: absolute;
+  top: 30%;
+  left: calc(30% - 1px);
+  width: 70%;
+  height: 40%;
+  border-right: none;
+  border-left: 2px dashed var(--color);
+  border-bottom: 2px dashed var(--color);
+}
+
+.animation-example > .item.-type2 > .dot {
+  top: 30%;
+  left: 30%;
+  animation: move-dot2 4s linear infinite;
+}
+
+.animation-example > .item.-type2 > .circle {
+  top: 30%;
+  left: 30%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.animation-example > .item:nth-of-type(1) > .dot {
+  animation-delay: 0;
+}
+
+.animation-example > .item:nth-of-type(7) > .dot {
+  animation-delay: 0.5s;
+}
+
+.animation-example > .item:nth-of-type(2) > .dot {
+  animation-delay: 1s;
+}
+
+.animation-example > .item:nth-of-type(6) > .dot {
+  animation-delay: 1.5s;
+}
+
+.animation-example > .item:nth-of-type(3) > .dot {
+  animation-delay: 2s;
+}
+
+.animation-example > .item:nth-of-type(5) > .dot {
+  animation-delay: 2.5s;
+}
+
+.animation-example > .item:nth-of-type(4) > .dot {
+  animation-delay: 3s;
+}
+
+.animation-example > .item:nth-of-type(8) > .dot {
+  animation-delay: 3.5s;
+}
+
+.animation-example > .center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  height: 50%;
+  width: 50%;
+}
+
+.animation-example > .center > .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 50%;
+}
+
+.animation-example > .center > .circle:nth-child(1) {
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 0 3vmin rgba(0, 0, 0, 0.1);
+}
+
+.animation-example > .center > .circle:nth-child(2) {
+  height: 80%;
+  width: 80%;
+  border: 2px solid var(--color);
+}
+
+.animation-example > .center > .circle:nth-child(3) {
+  height: 50%;
+  width: 50%;
+  background: var(--color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black; 
+  font-size: 12px;
+  transform-origin: center;
+}
+
+#redblocks > * {
+  transform: translate3d(160px, -93px, 0);
+  animation: moveblocks 4s 1s ease infinite;
+}
+
+@keyframes moveblocks {
+  0% {
+    transform: translate3d(160px, -93px, 0);
+  }
+  50%,
+  100% {
+    transform: translate(0);
+  }
+}
+
+#firstBlock {
+  transform: translate3d(160px, -93px, 0);
+  animation: firstBlock 4s 1s ease infinite;
+}
+
+#blockdis {
+  animation: blockdis 4s 1s ease infinite;
+}
+
+@keyframes blockdis {
+  30% {
+    opacity: 1;
+  }
+  40%, 100% {
+    opacity: 0;
+    transform: translate3d(-160px, 93px, 0);
+  }
+}
+
+@keyframes firstBlock {
+  0%,
+  15% {
+    opacity: 0;
+  }
+  40%,
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Converting SCSS @for loops to static CSS */
+#redblocksparticles g:nth-child(1) polygon { opacity: 0.35; animation: glow 4s 1s ease infinite; }
+#redblocksparticles g:nth-child(2) polygon { opacity: 0.35; animation: glow 4s 1s ease infinite; }
+#redblocksparticles g:nth-child(3) polygon { opacity: 0.35; animation: glow 4s 1s ease infinite; }
+#redblocksparticles g:nth-child(4) polygon { opacity: 0.35; animation: glow 4s 1s ease infinite; }
+
+/* Dots animations for each group */
+#redblocksparticles g:nth-child(1) g circle,
+#redblocksparticles g:nth-child(2) g circle,
+#redblocksparticles g:nth-child(3) g circle,
+#redblocksparticles g:nth-child(4) g circle {
+  animation: dots 4s ease infinite;
+}
+
+/* Individual delays for circles 1-19 */
+@for $i from 1 to 20 {
+  #redblocksparticles g:nth-child(1) g circle:nth-child($i) { animation-delay: calc(1000ms + ($i * 50ms)); }
+  #redblocksparticles g:nth-child(2) g circle:nth-child($i) { animation-delay: calc(1000ms + ($i * 50ms)); }
+  #redblocksparticles g:nth-child(3) g circle:nth-child($i) { animation-delay: calc(1000ms + ($i * 50ms)); }
+  #redblocksparticles g:nth-child(4) g circle:nth-child($i) { animation-delay: calc(1000ms + ($i * 50ms)); }
+}
+
+@keyframes glow {
+  0%,
+  45% {
+    opacity: 0;
+  }
+  60%, 100% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes dots {
+  0%,
+  35% {
+    transform: translate(0);
+    opacity: 0;
+  }
+  60%, 80% {
+    transform: translate(55px, -35px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(55px, -35px);
+    opacity: 0;
+  }
+}
+
+#purplebg > * {
+  animation: up 2s ease infinite alternate;
+}
+
+@for $i from 1 to 22 {
+  #purplebg > :nth-child($i) {
+    animation-delay: calc($i * 500ms);
+  }
+}
+
+@keyframes up {
+  to {
+    transform: translate(0, -25px);
+  }
+}
+
+#bottomparticles > *,
+#bottomparticles2 > *,
+#redglowparticles > * {
+  animation: particles 4s ease infinite alternate, p 2s ease infinite alternate;
+}
+
+@for $i from 1 to 13 {
+  #bottomparticles > :nth-child($i) { animation-delay: calc($i * 300ms), 0s; }
+  #bottomparticles2 > :nth-child($i) { animation-delay: calc($i * 300ms), 0s; }
+  #redglowparticles > :nth-child($i) { animation-delay: calc($i * 300ms), 0s; }
+}
+
+@keyframes p {
+  85%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes particles {
+  0%, 100% {
+    transform: translate(0);
+  }
+  50% {
+    transform: translate(10px, 15px);
+  }
+}
+
+.particlespoly {
+  animation: p 2s ease infinite alternate;
+}
+
+#d-app g:nth-child(1),
+#d-app g:nth-child(2),
+#d-app g:nth-child(3) {
+  animation: updown 2s ease-in-out infinite alternate;
+}
+
+#d-app g:nth-child(1) { animation-delay: 200ms; }
+#d-app g:nth-child(2) { animation-delay: 400ms; }
+#d-app g:nth-child(3) { animation-delay: 600ms; }
+
+#d-apps2 g:nth-child(1),
+#d-apps2 g:nth-child(2),
+#d-apps2 g:nth-child(3) {
+  animation: updown 2s ease-in-out infinite alternate;
+}
+
+#d-apps2 g:nth-child(1) { animation-delay: 200ms; }
+#d-apps2 g:nth-child(2) { animation-delay: 400ms; }
+#d-apps2 g:nth-child(3) { animation-delay: 600ms; }
+
+#d-apps2wrapper g:nth-child(3) g > circle,
+#d-appswrapper g:nth-child(2) g > circle {
+  animation: updown 2s ease infinite alternate;
+}
+
+@for $i from 1 to 20 {
+  #d-apps2wrapper g:nth-child(3) g > circle:nth-child($i) { animation-delay: calc($i * 50ms); }
+  #d-appswrapper g:nth-child(2) g > circle:nth-child($i) { animation-delay: calc($i * 50ms); }
+}
+
+@keyframes updown {
+  100% {
+    transform: translate(0, -20px);
+  }
+}
+
+#Layer_1 > g:nth-child(2) > g:nth-child(18) > g:nth-child(12) {
+  animation: arrows 1s ease-in-out infinite alternate, p 2s ease infinite alternate;
+}
+
+@keyframes arrows {
+  to {
+    transform: translate(25px, 25px);
+  }
+}
+
+#Layer_1 > g:nth-child(2) > g:nth-child(17) > g:nth-child(13) {
+  animation: arrows2 1s ease-in-out infinite alternate, p 2s ease infinite alternate;
+}
+
+@keyframes arrows2 {
+  to {
+    transform: translate(-25px, -25px);
+  }
+}
+
+#Layer_1 > g:nth-child(2) > g:nth-child(17) > g:nth-child(12) {
+  animation: arrows 1s ease-in-out infinite alternate, p 2s ease infinite alternate;
+}
+
+.svg-tittle {
+	max-width: 150px;
+	width: 100%;
+	height: auto;
+	animation: spinsvg 8s infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes spinsvg {
+	from {
+		transform: rotate(0deg);
+	}
+	
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.wrapper {
+  display: inline-flex;
+  list-style: none;
+  margin-top: 12px;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: black;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 4px 4px white;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: black;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px white;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: black;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: #1877F2;
+  color: #ffffff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: #1DA1F2;
+  color: #ffffff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #E4405F;
+  color: #ffffff;
+}
+
+.wrapper .github:hover,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip::before {
+  background: #333333;
+  color: #ffffff;
+}
+
+.wrapper .youtube:hover,
+.wrapper .youtube:hover .tooltip,
+.wrapper .youtube:hover .tooltip::before {
+  background: #CD201F;
+  color: #ffffff;
+}
+

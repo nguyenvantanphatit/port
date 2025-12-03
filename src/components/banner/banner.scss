@@ -1,0 +1,262 @@
+@media (max-width: 768px) {
+  .size-height {
+    height: 54px;
+  }
+}
+
+.banner {
+  min-height: 60vh;
+  color: #fff;
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.container-banner {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.box {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 30vw;
+  padding-bottom: 30vw;
+  margin: 1vw;
+  text-transform: uppercase;
+  font-weight: 600;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    width: 46vw;
+    padding-bottom: 46vw;
+  }
+
+  &:hover {
+    .box__btn {
+      color: black;
+    }
+
+    .box__background {
+      animation-play-state: paused;
+    }
+  }
+
+  &__title {
+    transition: all 0.3s;
+    transform: scale(1) translateY(0);
+  }
+
+  &__btn {
+    line-height: 4vw;
+    text-align: center;
+    max-width: 80%;
+    padding: 0 2vw;
+    font-size: 1.2rem;
+    margin-top: 1vw;
+    transition: all 0.3s;
+    transform: scale(1);
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+  }
+
+  &__col {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__text-line {
+    position: absolute;
+    font-size: 1rem;
+    text-align: center;
+    left: 3vw;
+    right: 50%;
+
+    &--top {
+      top: 0;
+    }
+
+    &--bottom {
+      bottom: 0;
+    }
+
+    span {
+      line-height: 3vw;
+      padding: 0 1.5vw;
+      background-color: yellow;
+    }
+  }
+
+  &__text-svg {
+    transform-origin: 50% 50%;
+    animation: rotate normal infinite 9s linear;
+
+    &--reverse {
+      animation: rotateReverse normal infinite 15s linear;
+    }
+  }
+  &--4 {
+    width: 100vw;
+
+    @media (max-width: 768px) {
+      width: 94vw;
+      padding-bottom: 46vw;
+    }
+  }
+  &--4 {
+    width: 100%;
+    text-shadow: -1px 0 0 white, 0 -1px 0 white, 1px 0 0 white, 0 1px 0 white;
+    color: black;
+
+    span {
+      letter-spacing: 0.3vw;
+      animation: text 4s linear infinite running;
+
+      &:nth-child(2n+1) {
+        animation-delay: 1s;
+      }
+
+      &:nth-child(3n+2) {
+        animation-delay: 2s;
+      }
+    }
+
+    &:hover {
+      text-shadow: -1px 0 0 #e8e8e8, 0 -1px 0 #e8e8e8, 1px 0 0 #e8e8e8, 0 1px 0 #e8e8e8;
+
+      span {
+        animation: none;
+      }
+
+      .box__title {
+        z-index: 2;
+        opacity: 1;
+        text-shadow: -1px 0 0 yellow, 0 -1px 0 yellow, 1px 0 0 yellow, 0 1px 0 yellow;
+        transform: scale(1.6);
+        color: yellow;
+
+        &--top {
+          transform: scale(1.6) translateY(-1vw);
+        }
+      }
+    }
+  }
+}
+
+.card {
+  position: relative;
+  font-size: 16px;
+  color: black;
+  border: 1px solid white;
+  background-color: #e8e8e8;
+  margin: 3%;
+  height: 40%;
+  width: 88%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__top {
+    background-color: black;
+    color: white;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    transition: all 0.3s;
+
+    span {
+      padding-right: 4%;
+      font-size: 2rem;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    line-height: 1.2;
+    transition: all 0.3s;
+    background-color: yellow;
+    color: black;
+    border-top: 1px solid black;
+    text-align: center;
+    transform: translateY(100%);
+  }
+
+  &:hover {
+    .card__title {
+      transform: translateY(-1vw);
+    }
+
+    .card__btn {
+      transform: translateY(0);
+    }
+  }
+}
+
+@keyframes text {
+  0%, 19% {
+    color: white;
+  }
+  20%, 100% {
+    color: black;
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateReverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}

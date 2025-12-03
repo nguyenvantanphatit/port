@@ -1,0 +1,87 @@
+.keyboard {
+    width: 100%;
+    position: relative;
+    margin: 20px auto;
+  }
+  
+  .row {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: #ebebeb;
+    color: #000;
+    border-radius: 15px;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .key:hover {
+    box-shadow: inset 0 0 5px 5px #d3d3d3;
+  }
+  
+  .clay {
+    background: #ebebeb;
+  }
+  
+  #esc { width: 35px; border-radius: 10px; background: palegreen; }
+  #esc:hover { box-shadow: inset 0 0 5px 5px lightgreen; }
+  
+  #del { width: 75px; background: #AFEEEE; }
+  #del:hover { box-shadow: inset 0 0 5px 5px #B0E0E6; }
+  
+  #tab { width: 70px; background: #FF7F50; }
+  #tab:hover { box-shadow: inset 0 0 5px 5px indianred; }
+  
+  #caps { width: 80px; background: #00dbff; }
+  #caps:hover { box-shadow: inset 0 0 5px 5px #10A5F5; }
+  
+  #enter { width: 80px; background: #40E0D0; }
+  #enter:hover { box-shadow: inset 0 0 5px 5px #00CED1; }
+  
+  #slash { width: 60px; }
+  
+  #shift { width: 110px; background: #6495ED; }
+  #shift:hover { box-shadow: inset 0 0 5px 5px #527fd1; }
+  
+  #shift2 { width: 70px; background: #87CEFA; }
+  #shift2:hover { box-shadow: inset 0 0 5px 5px #79bde8; }
+  
+  #ctrl { background: #DC143C; }
+  #ctrl:hover { box-shadow: inset 0 0 5px 5px #ba1133; }
+  
+  #fn { background: orange; }
+  #fn:hover { box-shadow: inset 0 0 5px 5px darkorange; }
+  
+  #win { background: mediumpurple; }
+  #win:hover { box-shadow: inset 0 0 5px 5px slateblue; }
+  
+  #alt { background: #778899; }
+  #alt:hover { box-shadow: inset 0 0 5px 5px #708090; }
+  
+  #space { 
+    width: 300px; 
+    background-image: url("https://i.ibb.co/9qLH1SB/constellation-pattern.jpg");
+    background-size: cover;
+    filter: brightness(200%);
+  }
+  #space:hover { filter: brightness(80%); }
+  
+  #altgr { background: lightgray; }
+  #altgr:hover { box-shadow: inset 0 0 5px 5px silver; }
+  
+  #menu { background: red; }
+  #menu:hover { box-shadow: inset 0 0 5px 5px #d90000; }
+  
+  #ctrl2 { background: chocolate; }
+  #ctrl2:hover { box-shadow: inset 0 0 5px 5px sienna; }
